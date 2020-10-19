@@ -1,4 +1,4 @@
-package com.kodilla.covid_back.controller;
+package com.kodilla.covid_back.restController;
 
 import com.kodilla.covid_back.client.CovidClient;
 import com.kodilla.covid_back.dto.CovidDto;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class CovidController {
+public class CovidRestController {
 
     @Autowired
     private CovidClient covidClient;
@@ -19,6 +19,5 @@ public class CovidController {
     public List<CovidDto> getCovidGrow () {
         return covidClient.getCovidGrow();
     }
-
 
 }

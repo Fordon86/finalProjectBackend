@@ -24,4 +24,5 @@ public class CovidClient {
         }
         return new ArrayList<>();
     }
+
 }

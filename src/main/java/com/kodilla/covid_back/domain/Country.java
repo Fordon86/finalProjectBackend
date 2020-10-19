@@ -19,7 +19,7 @@ public class Country {
     private String countryName;
     private String countryShortName;
     private int countryNumber;
-    private List<User> users = new ArrayList<>();
+    private List<User> users= new ArrayList<>();
 
     @Id
     @GeneratedValue
@@ -48,11 +48,9 @@ public class Country {
     }
 
     @ManyToMany(cascade = CascadeType.ALL,
-    mappedBy = "COUNTRY")
+    mappedBy = "countries")
     public List<User> getUsers() {
         return users;
     }
-
-
 
 }

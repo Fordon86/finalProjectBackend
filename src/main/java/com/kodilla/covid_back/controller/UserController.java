@@ -6,6 +6,7 @@ import com.kodilla.covid_back.service.UserDbService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+
 @CrossOrigin
 @RestController
 @RequestMapping("/v1/user")

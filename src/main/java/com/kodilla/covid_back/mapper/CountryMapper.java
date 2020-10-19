@@ -17,7 +17,6 @@ public class CountryMapper {
                 .build();
     }
 
-
     public CountryDto mapToCountryDto (final Country country) {
         return new CountryDto(
                 country.getCountryId(),
