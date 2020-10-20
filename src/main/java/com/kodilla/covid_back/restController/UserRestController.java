@@ -1,7 +1,11 @@
 package com.kodilla.covid_back.restController;
 
+import com.kodilla.covid_back.client.CovidClient;
+import com.kodilla.covid_back.domain.Country;
 import com.kodilla.covid_back.domain.User;
+import com.kodilla.covid_back.dto.CovidDto;
 import com.kodilla.covid_back.dto.UserDto;
+import com.kodilla.covid_back.dto.UserFullViewDto;
 import com.kodilla.covid_back.mapper.UserMapper;
 import com.kodilla.covid_back.service.CountryDbService;
 import com.kodilla.covid_back.service.UserDbService;
@@ -23,6 +27,9 @@ public class UserRestController {
 
     @Autowired
     private CountryDbService countryDbService;
+
+    @Autowired
+    private CovidClient covidClient;
 
     @RequestMapping(value = "getUser")
     public List<UserDto> getUser () {
@@ -48,6 +55,32 @@ public class UserRestController {
             user.get().addCountry(countryDbService.getCountry(Long.valueOf(countryId)).get());
         }
         return userMapper.mapToUserDto(userDbService.saveUser(user.get()));
+    }
+    @GetMapping(value = "getUserFullView")
+    public UserFullViewDto getUserFullView(@RequestParam(value = "userId", required = true) String userId){
+        Optional<User> user = userDbService.getUser(Long.valueOf(userId));
+        UserFullViewDto userFullViewDto = new UserFullViewDto();
+        userFullViewDto.setUserId(userId);
+        if (user.isPresent()) {
+            for (Country country: user.get().getCountries()) {
+
+                List<CovidDto> covidGrowList =covidClient.getCovidGrow(country);
+                userFullViewDto.getMapCountryCovidGrow().put(country.getCountryShortName(),covidGrowList);
+            }
+        }
+        return userFullViewDto;
+    }
+
+    @GetMapping(value = "deleteCountry")
+    public Boolean deleteCountry (@RequestParam(value = "userId", required = true) String userId,
+                               @RequestParam(value = "countryId", required = true) String countryId) {
+        Optional<User> user = userDbService.getUser(Long.valueOf(userId));
+        if (user.isPresent()) {
+            user.get().deleteCountry(countryDbService.getCountry(Long.valueOf(countryId)).get());
+            userDbService.saveUser(user.get());
+            return true;
+        }
+        return false;
     }
 
 }

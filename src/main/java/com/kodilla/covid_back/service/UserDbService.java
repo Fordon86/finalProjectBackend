@@ -19,16 +19,16 @@ public class UserDbService {
         return userRepository.findAll();
     }
 
-    public void deleteUser (final Long userId) {
-        userRepository.deleteById(userId);
-    }
-
     public Optional<User> getUser (final Long userId) {
         return userRepository.findById(userId);
     }
 
     public User saveUser (User user) {
         return userRepository.save(user);
+    }
+
+    public void deleteUser (User user) {
+        userRepository.delete(user);
     }
 
     public User findUser (String userName, String userPassword) {

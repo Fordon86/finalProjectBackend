@@ -18,20 +18,23 @@ public class CountryMapper {
     }
 
     public CountryDto mapToCountryDto (final Country country) {
-        return new CountryDto(
-                country.getCountryId(),
-                country.getCountryName(),
-                country.getCountryShortName(),
-                country.getCountryNumber());
+        return CountryDto.builder()
+                .countryId(country.getCountryId())
+                .countryName((country.getCountryName()))
+                .countryNumber(country.getCountryNumber())
+                .countryShortName(country.getCountryShortName())
+                .build();
     }
 
     public List<CountryDto> mapToCountryDtoList (final List<Country> countryList) {
         return countryList.stream()
-                .map(t -> new CountryDto(t.getCountryId(),
-                        t.getCountryName(),
-                        t.getCountryShortName(),
-                        t.getCountryNumber()))
-                .collect(Collectors.toList());
+                .map(country -> CountryDto.builder()
+                        .countryId(country.getCountryId())
+                        .countryName((country.getCountryName()))
+                        .countryNumber(country.getCountryNumber())
+                        .countryShortName(country.getCountryShortName())
+                        .build())
+                        .collect(Collectors.toList());
     }
 
 }
