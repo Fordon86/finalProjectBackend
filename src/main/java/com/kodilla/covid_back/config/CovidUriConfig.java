@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Getter
 @Component
 public class CovidUriConfig {
-
+/*
     @Value("${covid.api.endpoint.prod}")
-    private String covidApiEndpint;
+    private String covidApiEndpint;*/
 }

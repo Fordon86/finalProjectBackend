@@ -1,11 +1,10 @@
 package com.kodilla.covid_back.restController;
 
+import com.kodilla.covid_back.client.AccuweatherClient;
 import com.kodilla.covid_back.client.CovidClient;
 import com.kodilla.covid_back.domain.Country;
 import com.kodilla.covid_back.domain.User;
-import com.kodilla.covid_back.dto.CovidDto;
-import com.kodilla.covid_back.dto.UserDto;
-import com.kodilla.covid_back.dto.UserFullViewDto;
+import com.kodilla.covid_back.dto.*;
 import com.kodilla.covid_back.mapper.UserMapper;
 import com.kodilla.covid_back.service.CountryDbService;
 import com.kodilla.covid_back.service.UserDbService;
@@ -30,6 +29,9 @@ public class UserRestController {
 
     @Autowired
     private CovidClient covidClient;
+
+    @Autowired
+    private AccuweatherClient accuweatherClient;
 
     @RequestMapping(value = "getUser")
     public List<UserDto> getUser () {
@@ -64,8 +66,10 @@ public class UserRestController {
         if (user.isPresent()) {
             for (Country country: user.get().getCountries()) {
 
-                List<CovidDto> covidGrowList =covidClient.getCovidGrow(country);
+                List<CovidDto> covidGrowList = covidClient.getCovidGrow(country);
                 userFullViewDto.getMapCountryCovidGrow().put(country.getCountryShortName(),covidGrowList);
+                AccuweatherDto temperatureList  = accuweatherClient.getTemperature(country);
+//                userFullViewDto.getMapCountryTemperature().put(country.getCountryNumber(),temperatureList);
             }
         }
         return userFullViewDto;
