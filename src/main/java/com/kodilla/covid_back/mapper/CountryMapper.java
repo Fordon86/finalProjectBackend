@@ -27,6 +27,9 @@ public class CountryMapper {
     }
 
     public List<CountryDto> mapToCountryDtoList (final List<Country> countryList) {
+        if (countryList == null) {
+            return null;
+        }
         return countryList.stream()
                 .map(country -> CountryDto.builder()
                         .countryId(country.getCountryId())
@@ -36,5 +39,6 @@ public class CountryMapper {
                         .build())
                         .collect(Collectors.toList());
     }
+
 
 }

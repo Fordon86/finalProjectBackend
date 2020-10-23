@@ -1,6 +1,5 @@
 package com.kodilla.covid_back.dto;
 
-import com.kodilla.covid_back.domain.Country;
 import lombok.*;
 
 import java.util.List;

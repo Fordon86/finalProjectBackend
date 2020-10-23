@@ -32,6 +32,14 @@ public class AccuweatherClient {
         for (Object day: (ArrayList)((LinkedHashMap) object).get("DailyForecasts")) {
             Object dayTemperature = ((LinkedHashMap)day).get("Temperature");
         }
+
+        /*AccuweatherDto accuweatherDto = new AccuweatherDto();
+        for (Object day: (ArrayList)((LinkedHashMap) object).get("DailyForecasts")) {
+            for (Object dayTemperature: (ArrayList)((LinkedHashMap)day).get("Temperature")) {
+                dayTemperature.
+            }
+        }*/
+
         return accuweatherDto;
 
 
