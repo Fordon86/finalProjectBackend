@@ -1,5 +1,6 @@
 package com.kodilla.covid_back.controller;
 
+import com.kodilla.covid_back.domain.User;
 import com.kodilla.covid_back.dto.UserDto;
 import com.kodilla.covid_back.mapper.UserMapper;
 import com.kodilla.covid_back.service.UserDbService;
@@ -9,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/v1/user")
 public class UserController {
 
     @Autowired
@@ -18,9 +18,12 @@ public class UserController {
     @Autowired
     private UserDbService userDbService;
 
-    @PostMapping(value = "createUser")
-    public UserDto createUser (@RequestBody UserDto userDto) {
-        return userMapper.mapToUserDto(userDbService.saveUser(userMapper.mapToUser(userDto)));
+    @GetMapping(value = "createUser")
+    public UserDto createUser (@RequestParam(value = "userName", required = true) String userName,
+    @RequestParam(value = "userPassword", required = true) String userPassword) {
+        UserDto userDto = UserDto.builder().userName(userName).userPassword(userPassword).build();
+        User user = userDbService.saveUser(userMapper.mapToUser(userDto));
+        return userMapper.mapToUserDto(user);
     }
 
 }
