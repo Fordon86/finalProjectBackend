@@ -14,7 +14,7 @@ public class CountryDbService {
     @Autowired
     private CountryRepository countryRepository;
 
-    public List<Country> getCountrys () {
+    public List<Country> getCountry () {
         return countryRepository.findAll();
     }
 

@@ -22,7 +22,7 @@ public class CountryRestController {
 
     @RequestMapping(value = "getCountryList")
     public List<CountryDto> getCountryList() {
-        return countryMapper.mapToCountryDtoList(countryDbService.getCountrys());
+        return countryMapper.mapToCountryDtoList(countryDbService.getCountry());
     }
 
 }
