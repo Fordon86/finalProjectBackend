@@ -18,10 +18,6 @@ public class CountryDbService {
         return countryRepository.findAll();
     }
 
-    public void deleteCountry (final Long countryId) {
-        countryRepository.deleteById(countryId);
-    }
-
     public Optional<Country> getCountry (final Long countryId) {
         return countryRepository.findById(countryId);
     }

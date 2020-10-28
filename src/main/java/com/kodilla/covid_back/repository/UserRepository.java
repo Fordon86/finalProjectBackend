@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository <User, Long> {
-/*    @Override
+    @Override
     List<User> findAll();
 
     @Override
@@ -17,6 +17,6 @@ public interface UserRepository extends JpaRepository <User, Long> {
     Optional<User> findById(Long userId);
 
     @Override
-    User save(User user);*/
+    User save(User user);
 
 }

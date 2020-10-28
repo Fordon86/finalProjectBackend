@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
-@CrossOrigin
+
+@CrossOrigin(origins = "*")
 @RestController
+@RequestMapping
 public class UserController {
 
     @Autowired
@@ -20,7 +22,7 @@ public class UserController {
 
     @GetMapping(value = "createUser")
     public UserDto createUser (@RequestParam(value = "userName", required = true) String userName,
-    @RequestParam(value = "userPassword", required = true) String userPassword) {
+                               @RequestParam(value = "userPassword", required = true) String userPassword) {
         UserDto userDto = UserDto.builder().userName(userName).userPassword(userPassword).build();
         User user = userDbService.saveUser(userMapper.mapToUser(userDto));
         return userMapper.mapToUserDto(user);

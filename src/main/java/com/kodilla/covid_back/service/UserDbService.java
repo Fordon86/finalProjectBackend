@@ -27,9 +27,9 @@ public class UserDbService {
         return userRepository.save(user);
     }
 
-    public void deleteUser (User user) {
+/*    public void deleteUser (User user) {
         userRepository.delete(user);
-    }
+    }*/
 
     public User findUser (String userName, String userPassword) {
         User user1 = new User();

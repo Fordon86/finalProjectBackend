@@ -1,6 +1,5 @@
 package com.kodilla.covid_back.dto;
 
-
 import lombok.*;
 
 @Builder
