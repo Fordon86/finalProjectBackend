@@ -98,4 +98,5 @@ public class UserRestControllerTest {
         //Then
         assertEquals(result, userDto1);
     }
+
 }

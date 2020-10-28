@@ -25,4 +25,5 @@ public class UserController {
         User user = userDbService.saveUser(userMapper.mapToUser(userDto));
         return userMapper.mapToUserDto(user);
     }
+
 }

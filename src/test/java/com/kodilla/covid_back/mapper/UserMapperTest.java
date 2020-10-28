@@ -80,4 +80,5 @@ public class UserMapperTest {
         assertEquals(userDtos.get(0).getUserPassword(), users.get(0).getUserPassword());
         assertEquals(userDtos.get(0).getUserCountryList(), users.get(0).getCountries());
     }
+
 }

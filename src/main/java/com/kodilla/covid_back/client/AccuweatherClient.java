@@ -39,4 +39,5 @@ public class AccuweatherClient {
 
         return accuweatherDto;
     }
+
 }

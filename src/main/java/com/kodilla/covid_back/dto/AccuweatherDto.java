@@ -15,4 +15,5 @@ public class AccuweatherDto {
     private int temperature;
 
     private Map<String, Integer> accuweatherData = new HashMap<>();
+
 }

@@ -62,4 +62,5 @@ public class CountryMapperTest {
         assertEquals(countryDtoList.get(0).getCountryNumber(),countryList.get(0).getCountryNumber());
         assertEquals(countryDtoList.get(0).getCountryShortName(),countryList.get(0).getCountryShortName());
     }
+
 }

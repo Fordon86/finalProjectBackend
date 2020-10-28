@@ -97,4 +97,5 @@ public class UserDbServiceTest {
         //When & Then
         assertEquals(user1, result);
     }
+
 }

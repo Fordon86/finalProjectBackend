@@ -56,4 +56,5 @@ public class User {
     public void deleteCountry(Country country) {
         countries.remove(country);
     }
+
 }
