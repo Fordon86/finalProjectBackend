@@ -1,6 +1,5 @@
 package com.kodilla.covid_back.mapper;
 
-import com.kodilla.covid_back.domain.Country;
 import com.kodilla.covid_back.domain.User;
 import com.kodilla.covid_back.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +39,4 @@ public class UserMapper {
                         .build())
                         .collect(Collectors.toList());
     }
-
 }

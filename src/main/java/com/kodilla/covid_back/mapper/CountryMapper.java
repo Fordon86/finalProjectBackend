@@ -39,6 +39,4 @@ public class CountryMapper {
                         .build())
                         .collect(Collectors.toList());
     }
-
-
 }

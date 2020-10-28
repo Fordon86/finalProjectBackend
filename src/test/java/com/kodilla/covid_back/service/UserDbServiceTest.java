@@ -26,7 +26,7 @@ public class UserDbServiceTest {
 
 
     @InjectMocks
-    private UserDbService userDbService = new UserDbService();
+    private UserDbService userDbService;
 
     @Mock
     private UserRepository userRepository;
@@ -97,5 +97,4 @@ public class UserDbServiceTest {
         //When & Then
         assertEquals(user1, result);
     }
-
 }

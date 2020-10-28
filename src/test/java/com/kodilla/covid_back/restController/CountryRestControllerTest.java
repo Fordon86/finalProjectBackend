@@ -3,7 +3,6 @@ package com.kodilla.covid_back.restController;
 import com.kodilla.covid_back.domain.Country;
 import com.kodilla.covid_back.dto.CountryDto;
 import com.kodilla.covid_back.mapper.CountryMapper;
-import com.kodilla.covid_back.mapper.CountryMapperTest;
 import com.kodilla.covid_back.service.CountryDbService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -48,9 +47,5 @@ public class CountryRestControllerTest {
 
         //Then
         assertEquals(result, countryDtoList);
-
-
     }
-
-
 }

@@ -1,7 +1,6 @@
 package com.kodilla.covid_back.domain;
 
 import lombok.*;
-
 import javax.validation.constraints.NotNull;
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -57,5 +56,4 @@ public class User {
     public void deleteCountry(Country country) {
         countries.remove(country);
     }
-
 }

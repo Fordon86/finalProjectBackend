@@ -67,8 +67,8 @@ public class UserRestController {
             for (Country country: user.get().getCountries()) {
 
                 List<CovidDto> covidGrowList = covidClient.getCovidGrow(country);
-                userFullViewDto.getMapCountryCovidGrow().put(country.getCountryShortName(),covidGrowList);
-                AccuweatherDto temperatureList  = accuweatherClient.getTemperature(country);
+                userFullViewDto.getMapCountryCovidGrow().put(country.getCountryName(),covidGrowList);
+//                AccuweatherDto temperatureList  = accuweatherClient.getTemperature(country);
 //                userFullViewDto.getMapCountryTemperature().put(country.getCountryNumber(),temperatureList);
             }
         }
@@ -86,5 +86,4 @@ public class UserRestController {
         }
         return false;
     }
-
 }

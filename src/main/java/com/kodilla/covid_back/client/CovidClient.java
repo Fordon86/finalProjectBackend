@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
 @Component
 public class CovidClient {
 
@@ -26,5 +25,4 @@ public class CovidClient {
         }
         return new ArrayList<>();
     }
-
 }

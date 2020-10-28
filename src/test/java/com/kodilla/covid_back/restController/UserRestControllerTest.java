@@ -1,7 +1,5 @@
 package com.kodilla.covid_back.restController;
 
-import com.kodilla.covid_back.client.AccuweatherClient;
-import com.kodilla.covid_back.client.CovidClient;
 import com.kodilla.covid_back.domain.Country;
 import com.kodilla.covid_back.domain.User;
 import com.kodilla.covid_back.dto.CountryDto;
@@ -17,7 +15,9 @@ import org.mockito.junit.MockitoJUnitRunner;
 import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -35,12 +35,6 @@ public class UserRestControllerTest {
 
     @Mock
     private CountryDbService countryDbService;
-
-    @Mock
-    private CovidClient covidClient;
-
-    @Mock
-    private AccuweatherClient accuweatherClient;
 
     @Test
     public void getUserTest() {
@@ -89,18 +83,19 @@ public class UserRestControllerTest {
 
     @Test
     public void addCountryTest() {
-/*        //Given
+        //Given
         UserDto userDto1 = mock(UserDto.class);
-        User user1 = mock(User.class);
+        User user1 = new User();
 
         when(userMapper.mapToUserDto(user1)).thenReturn(userDto1);
-        when(userDbService.getUser(1L)).thenReturn(java.util.Optional.of(user1));
+        when(userDbService.getUser(1L)).thenReturn(Optional.of(user1));
+        when(countryDbService.getCountry(any())).thenReturn(Optional.of(mock(Country.class)));
+        when(userDbService.saveUser(user1)).thenReturn(user1);
 
         //When
         UserDto result = userRestController.addCountry("1","2");
 
         //Then
-        assertEquals(result, userDto1);*/
+        assertEquals(result, userDto1);
     }
-
 }

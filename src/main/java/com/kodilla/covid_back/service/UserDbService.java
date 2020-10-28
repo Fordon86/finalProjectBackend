@@ -5,7 +5,6 @@ import com.kodilla.covid_back.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -27,10 +26,6 @@ public class UserDbService {
         return userRepository.save(user);
     }
 
-/*    public void deleteUser (User user) {
-        userRepository.delete(user);
-    }*/
-
     public User findUser (String userName, String userPassword) {
         User user1 = new User();
         user1.setUserName(userName);
@@ -44,5 +39,4 @@ public class UserDbService {
         else
             return null;
     }
-
 }

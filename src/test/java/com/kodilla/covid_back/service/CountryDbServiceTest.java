@@ -22,7 +22,7 @@ import static org.mockito.Mockito.when;
 public class CountryDbServiceTest {
 
     @InjectMocks
-    private CountryDbService countryDbService = new CountryDbService();
+    private CountryDbService countryDbService;
 
     @Mock
     private CountryRepository countryRepository;
@@ -70,5 +70,4 @@ public class CountryDbServiceTest {
         //Then
         assertEquals(country1, result);
     }
-
 }

@@ -1,7 +1,6 @@
 package com.kodilla.covid_back.dto;
 
 import lombok.*;
-
 import java.util.List;
 
 @Builder
@@ -15,5 +14,4 @@ public class UserDto {
     private String userName;
     private String userPassword;
     private List<CountryDto> userCountryList;
-
 }

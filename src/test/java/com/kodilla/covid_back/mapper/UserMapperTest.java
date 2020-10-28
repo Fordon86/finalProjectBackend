@@ -1,10 +1,13 @@
 package com.kodilla.covid_back.mapper;
 
+import com.kodilla.covid_back.domain.Country;
 import com.kodilla.covid_back.domain.User;
 import com.kodilla.covid_back.dto.CountryDto;
 import com.kodilla.covid_back.dto.UserDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertEquals;
@@ -12,12 +15,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class UserMapperTest {
 
-    private UserMapper userMapper = new UserMapper();
-    private CountryMapperTest countryMapper = new CountryMapperTest();
+    @InjectMocks
+    private UserMapper userMapper;
+    @Mock
+    private CountryMapper countryMapper;
 
     @Test
     public void mapToUserTest() {
@@ -31,20 +37,23 @@ public class UserMapperTest {
         User user = userMapper.mapToUser(userDto);
 
         //Then
-        assertEquals(userDto.getUserId(), user.getUserId());
-        assertEquals(userDto.getUserName(), user.getUserName());
-        assertEquals(userDto.getUserPassword(), user.getUserPassword());
-        assertEquals(userDto.getUserCountryList(), user.getCountries());
+        assertEquals(user.getUserId(), userDto.getUserId());
+        assertEquals(user.getUserName(), userDto.getUserName());
+        assertEquals(user.getUserPassword(), userDto.getUserPassword());
+
     }
 
     @Test
     public void mapToUserDtoTest() {
-/*
+
         //Given
         List<Country> countryList = new ArrayList<>();
+        List<CountryDto> countryListDto = new ArrayList<>();
         Country country = mock(Country.class);
         countryList.add(country);
         User user = new User (1L, "d", "a", countryList);
+
+        when(countryMapper.mapToCountryDtoList(countryList)).thenReturn(countryListDto);
 
         //When
         UserDto userDto = userMapper.mapToUserDto(user);
@@ -53,7 +62,6 @@ public class UserMapperTest {
         assertEquals(user.getUserId(), userDto.getUserId());
         assertEquals(user.getUserName(), userDto.getUserName());
         assertEquals(user.getUserPassword(), userDto.getUserPassword());
-        //assertEquals(user.getCountries(), userDto.getUserCountryList());*/
     }
 
     @Test
@@ -72,6 +80,4 @@ public class UserMapperTest {
         assertEquals(userDtos.get(0).getUserPassword(), users.get(0).getUserPassword());
         assertEquals(userDtos.get(0).getUserCountryList(), users.get(0).getCountries());
     }
-
-
 }

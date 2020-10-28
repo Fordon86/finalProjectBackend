@@ -1,5 +1,4 @@
 package com.kodilla.covid_back.dto;
-
 import lombok.*;
 
 @Builder
@@ -13,5 +12,4 @@ public class CountryDto {
     private String countryName;
     private String countryShortName;
     private int countryNumber;
-
 }

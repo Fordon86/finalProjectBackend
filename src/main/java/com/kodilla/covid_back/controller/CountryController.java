@@ -6,11 +6,9 @@ import com.kodilla.covid_back.service.CountryDbService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @CrossOrigin
 @RestController
-@RequestMapping("/v1/country")
+@RequestMapping
 public class CountryController {
 
     @Autowired
@@ -23,6 +21,4 @@ public class CountryController {
     public CountryDto createCountry (@RequestBody CountryDto countryDto) {
         return countryMapper.mapToCountryDto(countryDbService.saveCountry(countryMapper.mapToCountry(countryDto)));
     }
-
 }
-

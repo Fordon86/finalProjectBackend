@@ -1,7 +1,6 @@
 package com.kodilla.covid_back.domain;
 
 import lombok.*;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -52,5 +51,4 @@ public class Country {
     public List<User> getUsers() {
         return users;
     }
-
 }
