@@ -19,4 +19,3 @@ https://github.com/Fordon86/finalProjectBackend/commit/a4d7eb9e9811f5773f38cb48d
 
 - Frontend
 https://github.com/Fordon86/finalProjectFrontend/commit/0b0f205007ce2ef8a293ba4030ea197f2193190e
-
